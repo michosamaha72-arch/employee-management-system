@@ -30,7 +30,7 @@ import java.time.LocalDate;
 
 public class Main extends Application {
 
-    // ============ Data Model (same idea as Student in Example 5) ============
+
     public static class Employee {
         private final int id;
         private final String name;
@@ -89,10 +89,10 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        // The form adds employees to this list, the table shows this list
+
         ObservableList<Employee> data = FXCollections.observableArrayList();
 
-        // ================= STAGE 2 - SCENE 1: the form =================
+
         GridPane formGrid = new GridPane();
         formGrid.setAlignment(Pos.CENTER);
         formGrid.setHgap(10);
@@ -168,7 +168,7 @@ public class Main extends Application {
 
         Scene formScene = new Scene(formGrid, 420, 560);
 
-        // ================= STAGE 2 - SCENE 2: the table =================
+
         Text tableTitle = new Text("All Employees");
         tableTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
 
@@ -218,16 +218,15 @@ public class Main extends Application {
 
         Scene tableScene = new Scene(tableBox, 800, 450);
 
-        // ================= STAGE 2: the window that holds both scenes =================
+
         Stage employeeStage = new Stage();
         employeeStage.setTitle("Employee Management System");
         employeeStage.setScene(formScene);
 
-        // Switching between the two scenes in the SAME stage
+
         viewTableBtn.setOnAction(evt -> employeeStage.setScene(tableScene));
         backBtn.setOnAction(evt -> employeeStage.setScene(formScene));
 
-        // Submit button: read the form, validate, add to the list
         submitBtn.setOnAction(evt -> {
             String idText = idFld.getText();
             String name = nameFld.getText();
@@ -269,7 +268,6 @@ public class Main extends Application {
             }
         });
 
-        // ================= STAGE 1: the sign-in form =================
         GridPane loginGrid = new GridPane();
         loginGrid.setAlignment(Pos.CENTER);
         loginGrid.setHgap(10);
